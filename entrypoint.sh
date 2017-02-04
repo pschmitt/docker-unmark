@@ -2,10 +2,7 @@
 
 set -e
 
-echo "PARAMS: $*"
-
 DB_HOSTNAME=${DB_HOSTNAME:-db}
-# DB_PORT=${DB_PORT:-3306}
 DB_DATABASE=${DB_DATABASE:-unmark}
 DB_USERNAME=${DB_USERNAME:-unmark}
 DB_PASSWORD=${DB_PASSWORD:-unmark}

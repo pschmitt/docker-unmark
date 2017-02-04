@@ -1,0 +1,26 @@
+version: '2'
+services:
+  web:
+    image: pschmitt/unmark:latest
+    environment:
+      DB_HOSTNAME: mariadb-unmark
+      DB_DATABASE: unmark
+      DB_USERNAME: unmark
+      DB_PASSWORD: unmark
+    ports:
+      - 5003:80
+    depends_on:
+      - db
+    restart: always
+  db:
+    image: mariadb:latest
+    container_name: mariadb-unmark
+    volumes:
+      - "/var/lib/mysql"
+      - "./db_conf:/etc/mysql/conf.d"
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: unmark
+      MYSQL_DATABASE: unmark
+      MYSQL_USER: unmark
+      MYSQL_PASSWORD: unmark
